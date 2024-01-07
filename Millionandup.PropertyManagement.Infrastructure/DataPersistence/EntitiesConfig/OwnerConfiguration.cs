@@ -9,6 +9,9 @@ using Millionandup.PropertyManagement.Domain.Entities;
 
 namespace Millionandup.PropertyManagement.Infrastructure.DataPersistence.EntitiesConfig
 {
+    /// <summary>
+    /// configuracion de entidades para mapear a bd
+    /// </summary>
     public class OwnerConfiguration : IEntityTypeConfiguration<Owner>
     {
         public void Configure(EntityTypeBuilder<Owner> builder)
