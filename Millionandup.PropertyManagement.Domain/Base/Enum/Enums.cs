@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Millionandup.PropertyManagement.Domain.Enum
+﻿namespace Millionandup.PropertyManagement.Domain.Base.Enum
 {
     /// <summary>
     /// Tipo de provedores Sql soportados

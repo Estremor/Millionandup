@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Millionandup.PropertyManagement.Domain.Entities
+﻿namespace Millionandup.PropertyManagement.Domain.Entities
 {
     public partial class PropertyImage
     {

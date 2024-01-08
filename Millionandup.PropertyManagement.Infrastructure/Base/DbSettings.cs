@@ -1,4 +1,4 @@
-﻿using Millionandup.PropertyManagement.Domain.Enum;
+﻿using Millionandup.PropertyManagement.Domain.Base.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;

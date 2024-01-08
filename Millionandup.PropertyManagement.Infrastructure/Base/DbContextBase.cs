@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Millionandup.PropertyManagement.Domain.Enum;
+using Millionandup.PropertyManagement.Domain.Base.Enum;
 
 namespace Millionandup.PropertyManagement.Infrastructure.Base
 {
