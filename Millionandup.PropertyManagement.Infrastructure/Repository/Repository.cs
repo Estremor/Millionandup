@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using Millionandup.PropertyManagement.Domain.IRepository;
-using System.Linq.Expressions;
 
 namespace Millionandup.PropertyManagement.Infrastructure.Repository
 {
@@ -153,10 +153,7 @@ namespace Millionandup.PropertyManagement.Infrastructure.Repository
         /// <summary>
         /// Destruye la instancia de la clase
         /// </summary>
-        public void Dispose()
-        {
-            Context?.Dispose();
-        }
+        public void Dispose() => Context?.Dispose();
 
         #endregion
     }
