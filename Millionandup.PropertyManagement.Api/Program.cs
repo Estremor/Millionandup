@@ -62,11 +62,6 @@ builder.Services.AddMvc(op => op.EnableEndpointRouting = false);
 builder.Services.AddAutoMapper(typeof(Millionandup.PropertyManagement.Aplication.Automapper.AutoMapperProfile));
 
 #region FluentValidation
-//builder.Services.AddControllers().AddFluentValidation(cfg =>
-//{
-//    cfg.RegisterValidatorsFromAssemblyContaining<OwnerDtoValidator>();
-//});
-
 builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>

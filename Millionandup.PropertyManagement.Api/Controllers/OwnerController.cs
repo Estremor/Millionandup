@@ -6,6 +6,7 @@ using Millionandup.PropertyManagement.Aplication.Dtos;
 
 namespace Millionandup.PropertyManagement.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class OwnerController : ControllerBase
