@@ -15,10 +15,7 @@ namespace Millionandup.PropertyManagement.Api.Controllers
         #endregion
 
         #region C'tor
-        public ImageController(IPropertyImageAppService imageAppService)
-        {
-            _imageAppService = imageAppService;
-        }
+        public ImageController(IPropertyImageAppService imageAppService) => _imageAppService = imageAppService;
         #endregion
 
         #region Methods

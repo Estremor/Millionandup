@@ -19,10 +19,7 @@ namespace Millionandup.PropertyManagement.Api.Controllers
         #endregion
 
         #region C'tor
-        public PropertyController(IPropertyAppService propertyAppService)
-        {
-            _propertyAppService = propertyAppService;
-        }
+        public PropertyController(IPropertyAppService propertyAppService) => _propertyAppService = propertyAppService;
         #endregion
 
 

@@ -16,10 +16,7 @@ namespace Millionandup.PropertyManagement.Api.Controllers
         #endregion
 
         #region C'tor
-        public LoginController(ILoginAppService loginAppService)
-        {
-            _loginAppService = loginAppService;
-        }
+        public LoginController(ILoginAppService loginAppService) => _loginAppService = loginAppService;
         #endregion
 
         #region Methods

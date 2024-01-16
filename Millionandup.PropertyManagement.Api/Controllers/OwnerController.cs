@@ -15,10 +15,7 @@ namespace Millionandup.PropertyManagement.Api.Controllers
         #endregion
 
         #region C´tor
-        public OwnerController(IOwnerAppService ownerAppService)
-        {
-            _ownerAppService = ownerAppService;
-        }
+        public OwnerController(IOwnerAppService ownerAppService) => _ownerAppService = ownerAppService;
         #endregion
 
         #region Methods
