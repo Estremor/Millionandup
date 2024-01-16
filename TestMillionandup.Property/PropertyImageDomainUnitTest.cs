@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using Millionandup.PropertyManagement.Domain.IRepository;
 using Millionandup.PropertyManagement.Domain.Services;
-using entity = Millionandup.PropertyManagement.Domain.Entities;
+using _entity = Millionandup.PropertyManagement.Domain.Entities;
 
 namespace TestMillionandup.Property
 {
@@ -16,32 +16,32 @@ namespace TestMillionandup.Property
         [Test]
         public async Task Test_Property_Image_SaveImage_Valid()
         {
-            Mock<IRepository<entity.Property>> mockproperty = new();
-            Mock<IRepository<entity.PropertyImage>> mockImage = new();
+            Mock<IRepository<_entity.Property>> mockproperty = new();
+            Mock<IRepository<_entity.PropertyImage>> mockImage = new();
 
-            var img = new entity.PropertyImage { Enabled = true, File = Array.Empty<byte>(), IdProperty = Guid.NewGuid() };
-            mockproperty.Setup(c => c.Entity.Find(img.IdProperty)).Returns(new entity.Property { });
+            var img = new _entity.PropertyImage { Enabled = true, File = Array.Empty<byte>(), IdProperty = Guid.NewGuid() };
+            mockproperty.Setup(c => c.Entity.Find(img.IdProperty)).Returns(new _entity.Property { });
 
             PropertyImageDomainService service = new(mockImage.Object, mockproperty.Object);
             var result = await service.SaveImageAsync(img);
 
-            Assert.IsTrue(result.IsSuccessful, "Ocurrio un error al guaradar una imagen");
+            Assert.That(result.IsSuccessful, Is.True, "Ocurrio un error al guaradar una imagen");
 
         }
 
         [Test]
         public async Task Test_Property_Image_SaveImage_Not_Valid()
         {
-            Mock<IRepository<entity.Property>> mockproperty = new();
-            Mock<IRepository<entity.PropertyImage>> mockImage = new();
+            Mock<IRepository<_entity.Property>> mockproperty = new();
+            Mock<IRepository<_entity.PropertyImage>> mockImage = new();
 
-            var img = new entity.PropertyImage { Enabled = true, File = Array.Empty<byte>(), IdProperty = Guid.NewGuid() };
+            var img = new _entity.PropertyImage { Enabled = true, File = Array.Empty<byte>(), IdProperty = Guid.NewGuid() };
             mockproperty.Setup(c => c.Entity.Find(img.IdProperty));
 
             PropertyImageDomainService service = new(mockImage.Object, mockproperty.Object);
             var result = await service.SaveImageAsync(img);
 
-            Assert.IsTrue(!result.IsSuccessful, "Ocurrio un error al guaradar una imagen");
+            Assert.That(!result.IsSuccessful, Is.True, "Ocurrio un error al guaradar una imagen");
 
         }
     }

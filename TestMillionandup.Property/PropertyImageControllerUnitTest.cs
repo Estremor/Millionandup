@@ -25,7 +25,7 @@ namespace TestMillionandup.Property
             ImageController controller = new(mock.Object);
             var result = await controller.Post(propertyImage);
 
-            Assert.IsTrue(((StatusCodeResult)result).StatusCode == 200, "imagen no se pudo insertar");
+            Assert.That(((StatusCodeResult)result).StatusCode == 200, Is.True, "imagen no se pudo insertar");
         }
     }
 }

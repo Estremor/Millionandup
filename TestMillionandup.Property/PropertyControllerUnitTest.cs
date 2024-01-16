@@ -23,10 +23,10 @@ namespace TestMillionandup.Property
             PropertyDataDto property = Newtonsoft.Json.JsonConvert.DeserializeObject<PropertyDataDto>(propertyObj);
             mock.Setup(c => c.SavePropertyAsync(property)).Returns(Task.CompletedTask);
 
-            PropertyController controller = new PropertyController(mock.Object);
+            PropertyController controller = new(mock.Object);
             var dto = await controller.Post(property);
 
-            Assert.IsTrue(((StatusCodeResult)dto).StatusCode == 200, "Propiedad no se pudo insertar");
+            Assert.That(((StatusCodeResult)dto).StatusCode == 200, Is.True, "Propiedad no se pudo insertar");
         }
 
         [Test]
@@ -37,10 +37,10 @@ namespace TestMillionandup.Property
             PropertyTraceDto property = Newtonsoft.Json.JsonConvert.DeserializeObject<PropertyTraceDto>(propertyObj);
             mock.Setup(c => c.UpdatePropertyAsync(property)).Returns(Task.CompletedTask);
 
-            PropertyController controller = new PropertyController(mock.Object);
+            PropertyController controller = new(mock.Object);
             var dto = await controller.Put(property);
 
-            Assert.IsTrue(((StatusCodeResult)dto).StatusCode == 200, "Propiedad no Actualizada");
+            Assert.That(((StatusCodeResult)dto).StatusCode == 200, Is.True, "Propiedad no Actualizada");
         }
 
         [Test]
@@ -50,10 +50,10 @@ namespace TestMillionandup.Property
             var price = new PriceDto { InernalCode = "string", Price = 20 };
             mock.Setup(c => c.UpdatePriceAsync(price)).Returns(Task.CompletedTask);
 
-            PropertyController controller = new PropertyController(mock.Object);
+            PropertyController controller = new(mock.Object);
             var dto = await controller.UpdatePrice(price);
 
-            Assert.IsTrue(((StatusCodeResult)dto).StatusCode == 200, "no se pudo actualizar el precio");
+            Assert.That(((StatusCodeResult)dto).StatusCode, Is.EqualTo(200), "no se pudo actualizar el precio");
         }
     }
 }

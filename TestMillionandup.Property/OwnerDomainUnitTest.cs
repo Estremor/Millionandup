@@ -27,7 +27,7 @@ namespace TestMillionandup.Property
             OwnerDomainService service = new(mockDomainservice.Object);
             ActionResult result = await service.SaveAsync(owner);
 
-            Assert.IsTrue(result.IsSuccessful);
+            Assert.That(result.IsSuccessful, Is.True);
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace TestMillionandup.Property
             OwnerDomainService service = new(mockDomainservice.Object);
             ActionResult result = await service.SaveAsync(owner);
 
-            Assert.IsTrue(!result.IsSuccessful);
+            Assert.That(!result.IsSuccessful, Is.True);
         }
     }
 }

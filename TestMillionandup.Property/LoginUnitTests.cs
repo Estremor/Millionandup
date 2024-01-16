@@ -1,6 +1,5 @@
 ﻿using Moq;
 using NUnit.Framework;
-using System.Threading.Tasks;
 using Millionandup.PropertyManagement.Api.Controllers;
 using Millionandup.PropertyManagement.Aplication.Dtos;
 using Millionandup.PropertyManagement.Aplication.AplicationService.Contract;
@@ -39,7 +38,7 @@ namespace TestMillionandup.Property
             LoginController controller = new(mock.Object);
             var dto = await controller.Get(userName, password);
 
-            Assert.IsTrue(!string.IsNullOrWhiteSpace(dto.Token), "usuario no se pudo loguear verfificar login");
+            Assert.That(!string.IsNullOrWhiteSpace(dto.Token), Is.True, "usuario no se pudo loguear verfificar login");
         }
     }
 }

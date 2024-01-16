@@ -2,3 +2,12 @@
 
 # CS8600: Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
 dotnet_diagnostic.CS8600.severity = none
+
+# IDE0058: El valor de la expresión no se utiliza nunca.
+dotnet_diagnostic.IDE0058.severity = none
+
+# CS8604: Posible argumento de referencia nulo
+dotnet_diagnostic.CS8604.severity = none
+
+# CS8602: Desreferencia de una referencia posiblemente NULL.
+dotnet_diagnostic.CS8602.severity = none

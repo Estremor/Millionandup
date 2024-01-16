@@ -22,12 +22,12 @@ namespace TestMillionandup.Property
             Mock<IRepository<entity.Owner>> mockOwner = new();
             mockDomainservice.Setup(sp => sp.InsertAsync(property)).Returns(Task.FromResult(new entity.Property { }));
             mockDomainservice.Setup(sp => sp.List(x => x.CodeInternal == property.CodeInternal)).Returns(new List<entity.Property>());
-            mockOwner.Setup(sp => sp.List(x => x.IdOwner == property.IdOwner)).Returns(new List<entity.Owner> { new entity.Owner { IdOwner = Guid.NewGuid() } });
+            mockOwner.Setup(sp => sp.List(x => x.IdOwner == property.IdOwner)).Returns(new List<entity.Owner> { new() { IdOwner = Guid.NewGuid() } });
 
             PropertyDomainService service = new(mockDomainservice.Object, mockOwner.Object);
             var result = await service.SaveAsync(property);
 
-            Assert.IsTrue(result.IsSuccessful, "Ocurrio un error al guaradar property");
+            Assert.That(result.IsSuccessful, Is.True, "Ocurrio un error al guaradar property");
         }
 
         [Test]
@@ -44,7 +44,7 @@ namespace TestMillionandup.Property
             PropertyDomainService service = new(mockDomainservice.Object, mockOwner.Object);
             var result = await service.SaveAsync(property);
 
-            Assert.IsTrue(!result.IsSuccessful, "Ocurrio un error al guaradar property");
+            Assert.That(!result.IsSuccessful, Is.True, "Ocurrio un error al guaradar property");
         }
 
         [Test]
@@ -55,13 +55,13 @@ namespace TestMillionandup.Property
             Mock<IRepository<entity.Owner>> mockOwner = new();
             mockOwner.Setup(or => or.Entity.Find(property.IdOwner));
             Mock<IRepository<entity.Property>> mockProperty = new();
-            mockProperty.Setup(pr => pr.List(x => x.CodeInternal == property.CodeInternal)).Returns(new List<entity.Property>() { new entity.Property { } });
+            mockProperty.Setup(pr => pr.List(x => x.CodeInternal == property.CodeInternal)).Returns(new List<entity.Property>() { new() { } });
             mockProperty.Setup(pr => pr.UpdateAsync(property));
 
             PropertyDomainService service = new(mockProperty.Object, mockOwner.Object);
             var result = await service.UpdatePropertyAsync(property);
 
-            Assert.IsTrue(!result.IsSuccessful, "Ocurrio un error,  property fue Actualizada");
+            Assert.That(!result.IsSuccessful, Is.True, "Ocurrio un error,  property fue Actualizada");
         }
 
 
@@ -73,12 +73,12 @@ namespace TestMillionandup.Property
             Mock<IRepository<entity.Property>> mockDomainservice = new();
             Mock<IRepository<entity.Owner>> mockOwner = new();
             mockDomainservice.Setup(sp => sp.UpdateAsync(property)).Returns(Task.FromResult(new entity.Property { }));
-            mockDomainservice.Setup(sp => sp.List(x => x.CodeInternal == property.CodeInternal)).Returns(new List<entity.Property> { new entity.Property { } });
+            mockDomainservice.Setup(sp => sp.List(x => x.CodeInternal == property.CodeInternal)).Returns(new List<entity.Property> { new() { } });
 
             PropertyDomainService service = new(mockDomainservice.Object, mockOwner.Object);
             var result = await service.UpdatePriceAsync(property);
 
-            Assert.IsTrue(result.IsSuccessful, "Ocurrio un error al guaradar property");
+            Assert.That(result.IsSuccessful, Is.True, "Ocurrio un error al guaradar property");
         }
 
         [Test]
@@ -94,7 +94,7 @@ namespace TestMillionandup.Property
             PropertyDomainService service = new(mockDomainservice.Object, mockOwner.Object);
             var result = await service.UpdatePriceAsync(property);
 
-            Assert.IsTrue(!result.IsSuccessful, "Ocurrio un error se actualizo el precio");
+            Assert.That(!result.IsSuccessful, Is.True, "Ocurrio un error se actualizo el precio");
         }
     }
 }
