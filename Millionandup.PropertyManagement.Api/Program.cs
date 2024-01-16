@@ -86,6 +86,8 @@ DependencyInjectionProfile.RegisterProfile(builder.Services, builder.Configurati
 
 var app = builder.Build();
 
+#region Configure the HTTP request pipeline.
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -104,6 +106,7 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
 });
+#endregion Configure the HTTP request pipeline.
 
 #region Creacion de usurio de prueba
 try
@@ -120,8 +123,8 @@ try
 }
 catch (Exception e)
 {
-    throw;
+    throw ;
 }
-#endregion
+#endregion Creacion de usurio de prueba
 
 app.Run();

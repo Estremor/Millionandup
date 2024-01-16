@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="PostMan json test\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Millionandup.PropertyManagement.Api\Millionandup.PropertyManagement.Api.csproj" />
     <ProjectReference Include="..\Millionandup.PropertyManagement.Aplication\Millionandup.PropertyManagement.Aplication.csproj" />
   </ItemGroup>
